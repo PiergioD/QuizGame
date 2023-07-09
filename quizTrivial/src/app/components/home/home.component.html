@@ -1,0 +1,21 @@
+<div class="container">
+  <form>
+    <form #f="ngForm" (ngSubmit)="submitFormHome(f)">
+      <label for="name">Inserisci il tuo Nome!</label>
+      <input type="text" name="name" ngModel required />
+      <label for="difficolta">Scegli la tua Difficoltà</label>
+      <select name="difficolta" ngModel required>
+        <option value="easy">Facile</option>
+        <option value="medium">Medio</option>
+        <option value="hard">Difficile</option>
+      </select>
+      <label for="categoria">Sceglia la tua Categoria!</label>
+      <select name="categoria" ngModel required="">
+        <option *ngFor="let cat of categories" value="{{ cat.id }}">
+          {{ cat.name }}
+        </option>
+      </select>
+      <button type="submit">Vai alle domande!</button>
+    </form>
+  </form>
+</div>
