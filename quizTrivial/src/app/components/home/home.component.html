@@ -10,12 +10,12 @@
         <option value="hard">Difficile</option>
       </select>
       <label for="categoria">Sceglia la tua Categoria!</label>
-      <select name="categoria" ngModel required="">
+      <select name="categoria" ngModel required>
         <option *ngFor="let cat of categories" value="{{ cat.id }}">
           {{ cat.name }}
         </option>
       </select>
-      <button type="submit">Vai alle domande!</button>
+      <button type="submit" [disabled]="!f.valid">Vai alle domande!</button>
     </form>
   </form>
 </div>

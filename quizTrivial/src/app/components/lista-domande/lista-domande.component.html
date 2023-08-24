@@ -1,1 +1,40 @@
-<p>lista-domande works!</p>
+<h2>Ciao {{ oggetFormHome?.name }}</h2>
+
+<p>
+  Categoria: {{ oggetFormHome?.categoria }} - Difficoltà:
+  {{ oggetFormHome?.difficolta }}
+</p>
+
+<div>
+  <!--sezione per far comparire le risposte-->
+  <ng-container *ngIf="!quizCompleto">
+    <p>
+      Question {{ currentQuestion + 1 }} of {{ arrDomande.length }} |
+      <span>{{ counterSecondi }} Secondi Rimanenti</span>
+    </p>
+    <h5>{{ arrDomande[currentQuestion].questione }}</h5>
+    <ul
+      *ngFor="
+        let risposta of arrDomande[currentQuestion].risposte | randomizeOrder
+      "
+    >
+      <li (click)="answer(currentQuestion + 1, risposta)">
+        {{ risposta.testo }}
+      </li>
+    </ul>
+  </ng-container>
+
+  <!--elemento per far comparire la sezione che ho completato il quiz-->
+  <ng-container *ngIf="quizCompleto">
+    <h3>
+      Congratulazioni!! <br />Hai completato il quiz! <br />Il tuo risultato
+    </h3>
+    <p>Domande a cui hai Risposto: {{ arrDomande.length }}</p>
+    <p>Risposte Corrette: {{ correctAnswers }}</p>
+    <p>Risposte Sbagliate: {{ incorrectAnswers }}</p>
+    <p>
+      Percentuale di Risposte Giuste:
+      {{ (correctAnswers / arrDomande.length) * 100 }} %
+    </p>
+  </ng-container>
+</div>

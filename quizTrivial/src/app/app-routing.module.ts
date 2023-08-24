@@ -5,9 +5,9 @@ import { HomeComponent } from './components/home/home.component';
 import { ListaDomandeComponent } from './components/lista-domande/lista-domande.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/categoria', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: 'categoria',
+    path: 'home',
     component: HomeComponent,
   },
   {

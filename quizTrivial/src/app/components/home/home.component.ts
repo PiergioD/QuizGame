@@ -27,15 +27,18 @@ export class HomeComponent {
   }
 
   submitFormHome(f: NgForm) {
+    // setto i valori del form nell'oggetto che verra sparato nellevent emitter
     this.rispostaForm.categoria = +f.value.categoria;
     this.rispostaForm.difficolta = f.value.difficolta;
     this.rispostaForm.name = f.value.name;
 
-    this.catSRV.$oggettoDalForm.next(this.rispostaForm);
+    // sparo il valore nel subject e lo mando al componenente lista domanda
+    this.catSRV.$subjectEventHome.next(this.rispostaForm);
     this.router.navigate(['domande']);
   }
 
   getCategorie() {
+    //faccio chiamata get delle categoria per popolare il select nel template
     this.sub = this.catSRV.getCategory().subscribe((ris) => {
       this.categories = ris.trivia_categories;
       console.log(this.categories);
