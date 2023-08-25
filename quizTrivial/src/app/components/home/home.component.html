@@ -1,21 +1,60 @@
 <div class="container">
-  <form>
-    <form #f="ngForm" (ngSubmit)="submitFormHome(f)">
-      <label for="name">Inserisci il tuo Nome!</label>
-      <input type="text" name="name" ngModel required />
-      <label for="difficolta">Scegli la tua Difficoltà</label>
-      <select name="difficolta" ngModel required>
-        <option value="easy">Facile</option>
-        <option value="medium">Medio</option>
-        <option value="hard">Difficile</option>
-      </select>
-      <label for="categoria">Sceglia la tua Categoria!</label>
-      <select name="categoria" ngModel required>
-        <option *ngFor="let cat of categories" value="{{ cat.id }}">
-          {{ cat.name }}
-        </option>
-      </select>
-      <button type="submit" [disabled]="!f.valid">Vai alle domande!</button>
-    </form>
-  </form>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Benvenuto!</mat-card-title>
+      <mat-card-subtitle
+        >Questo Quiz contiene 10 domande, in base alla Difficoltà e Categoria
+        Scelta.</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <mat-divider></mat-divider>
+      <h2 mat-subheader>Regolette:</h2>
+      <mat-list>
+        <mat-list-item
+          >1. Hai a disposizione 60 secondi per domanda</mat-list-item
+        >
+        <mat-list-item
+          >2. Se non riesci a rispondere entro il tempo stabilito, conta come
+          domanda sbagliata</mat-list-item
+        >
+        <mat-list-item
+          >3. Il tasto indietro ti riporta alla home! e puoi fare il quiz da
+          capo!</mat-list-item
+        >
+      </mat-list>
+
+      <form #f="ngForm" (ngSubmit)="submitFormHome(f)">
+        <mat-form-field appearance="fill">
+          <mat-label for="name">Inserisci il tuo Nome!</mat-label>
+          <input matInput type="text" name="name" ngModel required
+        /></mat-form-field>
+        <mat-form-field appearance="fill"
+          ><mat-label for="difficolta">Scegli la tua Difficoltà</mat-label>
+          <mat-select name="difficolta" ngModel required>
+            <mat-option value="easy">Facile</mat-option>
+            <mat-option value="medium">Medio</mat-option>
+            <mat-option value="hard">Difficile</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label for="categoria">Sceglia la tua Categoria!</mat-label>
+          <mat-select name="categoria" ngModel required>
+            <mat-option *ngFor="let cat of categories" value="{{ cat.id }}">
+              {{ cat.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!f.valid"
+        >
+          Vai alle domande!
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>

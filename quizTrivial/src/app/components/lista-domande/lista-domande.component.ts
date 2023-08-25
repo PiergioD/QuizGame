@@ -74,6 +74,7 @@ export class ListaDomandeComponent {
     if (currentQ === this.arrDomande.length) {
       this.stopCounter();
       this.quizCompleto = true;
+      return;
     }
 
     if (risposta.correct === true) {

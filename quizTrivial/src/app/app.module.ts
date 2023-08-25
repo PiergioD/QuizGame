@@ -11,7 +11,17 @@ import { ListaDomandeComponent } from './components/lista-domande/lista-domande.
 import { FormsModule } from '@angular/forms';
 import { DomandaComponent } from './components/domanda/domanda.component';
 import { RandomizeOrderPipe } from './shared/randomize-order.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// import di ng material
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +30,21 @@ import { RandomizeOrderPipe } from './shared/randomize-order.pipe';
     ListaDomandeComponent,
     RandomizeOrderPipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatButtonModule,
+    MatListModule,
+    MatToolbarModule,
+    MatDividerModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

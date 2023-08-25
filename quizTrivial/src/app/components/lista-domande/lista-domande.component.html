@@ -1,13 +1,16 @@
-<h2>Ciao {{ oggetFormHome?.name }}</h2>
-
-<p>
-  Categoria: {{ oggetFormHome?.categoria }} - Difficoltà:
-  {{ oggetFormHome?.difficolta }}
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Ciao {{ oggetFormHome?.name }}</mat-card-title>
+    <mat-card-subtitle
+      >Categoria: {{ oggetFormHome?.categoria }} - Difficoltà:
+      {{ oggetFormHome?.difficolta }}</mat-card-subtitle
+    >
+  </mat-card-header>
+</mat-card>
 
 <div>
   <!--sezione per far comparire le risposte-->
-  <ng-container *ngIf="!quizCompleto">
+  <ng-container *ngIf="!quizCompleto && currentQuestion < arrDomande.length">
     <p>
       Question {{ currentQuestion + 1 }} of {{ arrDomande.length }} |
       <span>{{ counterSecondi }} Secondi Rimanenti</span>
@@ -25,7 +28,7 @@
   </ng-container>
 
   <!--elemento per far comparire la sezione che ho completato il quiz-->
-  <ng-container *ngIf="quizCompleto">
+  <ng-container *ngIf="quizCompleto && currentQuestion > arrDomande.length">
     <h3>
       Congratulazioni!! <br />Hai completato il quiz! <br />Il tuo risultato
     </h3>

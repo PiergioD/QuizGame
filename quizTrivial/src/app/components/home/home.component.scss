@@ -1,13 +1,13 @@
-ul {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  li {
-    display: inline-block;
-    padding: 5px;
-  }
-}
-
-form {
+.container {
+  padding: 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  mat-card {
+    max-width: fit-content;
+  }
 }
