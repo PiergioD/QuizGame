@@ -1,1 +1,6 @@
-
+<h5>{{ domandaSingola.questione }}</h5>
+<ul *ngFor="let risposta of domandaSingola.risposte | randomizeOrder">
+  <li (click)="onClickRisposta(risposta)">
+    {{ risposta.testo }}
+  </li>
+</ul>

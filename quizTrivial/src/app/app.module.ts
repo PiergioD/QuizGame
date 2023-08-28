@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { DomandaComponent } from './components/domanda/domanda.component';
 import { ListaDomandeComponent } from './components/lista-domande/lista-domande.component';
 
 import { FormsModule } from '@angular/forms';
-import { DomandaComponent } from './components/domanda/domanda.component';
+
 import { RandomizeOrderPipe } from './shared/randomize-order.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -22,13 +23,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DomandaComponent,
+
     ListaDomandeComponent,
     RandomizeOrderPipe,
+    DomandaComponent,
   ],
   imports: [
     BrowserModule,

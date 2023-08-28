@@ -15,16 +15,12 @@
       Question {{ currentQuestion + 1 }} of {{ arrDomande.length }} |
       <span>{{ counterSecondi }} Secondi Rimanenti</span>
     </p>
-    <h5>{{ arrDomande[currentQuestion].questione }}</h5>
-    <ul
-      *ngFor="
-        let risposta of arrDomande[currentQuestion].risposte | randomizeOrder
+    <app-domanda
+      [domandaSingola]="arrDomande[currentQuestion]"
+      (rispostaSelezionata)="
+        handleRispostaSelezionata(currentQuestion + 1, $event)
       "
-    >
-      <li (click)="answer(currentQuestion + 1, risposta)">
-        {{ risposta.testo }}
-      </li>
-    </ul>
+    ></app-domanda>
   </ng-container>
 
   <!--elemento per far comparire la sezione che ho completato il quiz-->

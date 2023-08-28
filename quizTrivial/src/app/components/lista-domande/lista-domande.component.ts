@@ -69,8 +69,7 @@ export class ListaDomandeComponent {
       });
   }
 
-  // METODO ON CLICK CHE FA AVANZARE LE RISPOSTE
-  answer(currentQ: number, risposta: Risposta) {
+  handleRispostaSelezionata(currentQ: number, risposta: Risposta) {
     if (currentQ === this.arrDomande.length) {
       this.stopCounter();
       this.quizCompleto = true;
@@ -88,7 +87,6 @@ export class ListaDomandeComponent {
     }
   }
 
-  // metodi per l'orologio
   startCounter() {
     this.interval$ = interval(1000).subscribe((value) => {
       this.counterSecondi--;
